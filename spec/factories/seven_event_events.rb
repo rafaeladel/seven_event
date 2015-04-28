@@ -12,6 +12,8 @@ FactoryGirl.define do
       start_at 2.days.ago
     end
 
+    gallery 
+
     factory :valid_event, traits: [:valid_attr]
     factory :invalid_event, traits: [:invalid_attr]
   end

@@ -25,7 +25,9 @@ module SevenEvent
     # POST /events
     def create
       @event = Event.new(event_params)
+      @gallery = SevenGallery::Gallery.new(title: @event.title+"_gallery")
 
+      @event.gallery = @gallery
       if @event.save
         redirect_to @event, notice: 'Event was successfully created.'
       else

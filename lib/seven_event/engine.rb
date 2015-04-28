@@ -1,4 +1,5 @@
 require 'factory_girl'
+require 'seven_gallery'
 module SevenEvent
   class Engine < ::Rails::Engine
     isolate_namespace SevenEvent

@@ -2,5 +2,24 @@
 
 <%= render 'form' %>
 
+<h4>upload:</h4>
+<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= url_for seven_gallery.gallery_photos_url(@event.gallery) %>">
+  <p class="dz-message">Select photos</p>
+</div>
+
+<div class="row">
+  <h3>Photos: </h3>
+
+  <div>
+    <% @event.gallery.photos.each do |photo| %>
+        <div id="photo_<%= photo.id %>">
+          <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>
+          <%= link_to 'edit', seven_gallery.edit_gallery_photo_path(@event.gallery, photo) %> -
+          <%= link_to 'delete', seven_gallery.gallery_photo_path(@event.gallery, photo), method: :delete, data: {confirm: 'Sure?'} %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>

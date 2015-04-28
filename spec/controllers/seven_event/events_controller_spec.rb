@@ -73,6 +73,7 @@ module SevenEvent
         event = valid_event
         get :edit, {:id => event.to_param}, valid_session
         expect(assigns(:event)).to eq(event)
+
       end
     end
 
@@ -88,6 +89,13 @@ module SevenEvent
           post :create, {:event => valid_attributes}, valid_session
           expect(assigns(:event)).to be_a(Event)
           expect(assigns(:event)).to be_persisted
+          expect(assigns(:event).gallery).to be_persisted
+        end
+
+        it "attaches a gallery to new event" do
+          post :create, {:event => valid_attributes}, valid_session
+          expect(assigns(:event).gallery).to be_a SevenGallery::Gallery
+          expect(assigns(:event).gallery.title).to eq assigns(:event).title+"_gallery"
         end
 
         it "redirects to the created event" do
