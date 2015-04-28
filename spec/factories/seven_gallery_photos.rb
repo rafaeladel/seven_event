@@ -1,16 +1,14 @@
 FactoryGirl.define do
   factory :photo, class: "SevenGallery::Photo" do
-  	
-	  factory :photo_one, class: "SevenGallery::Photo" do
-  		after(:create) do |photo| 
-  			photo.gallery = gallery
-  		end
+  	  gallery
+  	  
+	  factory :photo_one do
 	  end
 
-	  factory :photo_two, class: "SevenGallery::Photo" do
+	  factory :photo_two do
 	  end
 
-	  factory :photo_three, class: "SevenGallery::Photo" do
+	  factory :photo_three do
 	  end
   end
 end
