@@ -5,9 +5,9 @@ module SevenGallery
 
     describe "PUT #make_main" do
       it "changes is_main to true in self and false in rest" do
-        event = FactoryGirl.create(:event, title: "title1", description: "desc1", start_at: Time.now + 1)
-        photo_one = event.gallery.photos.first
-        expect(photo_one.gallery.event).to be_a SevenEvent::Event
+        photo_one = FactoryGirl.create(:photo_with_gallery)
+        # p photo_one   
+        expect(photo_one.gallery).to be_a SevenGallery::Gallery
       end
     end
 
