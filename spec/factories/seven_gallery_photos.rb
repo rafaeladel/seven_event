@@ -11,7 +11,7 @@ FactoryGirl.define do
 	  end
 
 	  factory :photo_with_gallery do
-	  	association :seven_gallery_gallery, factory: gallery	
+	  	association :seven_gallery_gallery_id, factory: gallery
 	  end
   end
 end

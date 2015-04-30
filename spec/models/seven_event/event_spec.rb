@@ -14,7 +14,7 @@ module SevenEvent
       it "has gallery and photos" do
         event = FactoryGirl.create(:valid_event)
         expect(event.gallery).to be_a SevenGallery::Gallery
-        expect(event.gallery.photos.count).to eq 3
+        expect(event.gallery.photos.count).to eq 1
       end
     end
   end
