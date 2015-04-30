@@ -7,6 +7,8 @@ module SevenEvent
     validates :description, presence: true
     validate :date_valid
 
+    self.table_name = "seven_event_events"
+
     def date_valid
       if self.start_at.kind_of? Time
         if self.start_at < Time.now

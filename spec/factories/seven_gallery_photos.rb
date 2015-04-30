@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :photo, class: "SevenGallery::Photo" do
+  factory :photo, class: SevenGallery::Photo do
   	  	  
 	  factory :photo_one do
 	  end
@@ -11,7 +11,7 @@ FactoryGirl.define do
 	  end
 
 	  factory :photo_with_gallery do
-	  	association :seven_gallery_gallery_id, factory: gallery
+	  	gallery
 	  end
   end
 end
