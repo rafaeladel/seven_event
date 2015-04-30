@@ -1,7 +1,9 @@
 module SevenEvent
   class Event < ActiveRecord::Base
 
-    has_one :gallery, :class_name => 'SevenGallery::Gallery', foreign_key: "seven_event_event_id"
+    has_one :gallery, :class_name => 'SevenGallery::Gallery', foreign_key: "event_id"
+
+    self.table_name = "events"
 
     validates :title, presence: true
     validates :description, presence: true
