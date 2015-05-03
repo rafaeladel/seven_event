@@ -16,6 +16,11 @@
         <div id="photo_<%= photo.id %>">
           <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>
           <%= link_to 'edit', seven_gallery.edit_gallery_photo_path(@event.gallery, photo) %> -
+          <% if photo.is_main? %>
+              <span>main image</span> -
+          <% else %>
+              <%= link_to 'make main', make_photo_main_path(@event.gallery, photo), method: :put %> -
+          <% end %>
           <%= link_to 'delete', seven_gallery.gallery_photo_path(@event.gallery, photo), method: :delete, data: {confirm: 'Sure?'} %>
         </div>
     <% end %>

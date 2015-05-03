@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :photo, class: SevenGallery::Photo do
-  	  	  
+    gallery
 	  factory :photo_one do
 	  end
 
@@ -10,8 +10,7 @@ FactoryGirl.define do
 	  factory :photo_three do
 	  end
 
-	  factory :photo_with_gallery do
-	  	gallery
-	  end
+	  # factory :photo_with_gallery do
+	  # end
   end
 end
