@@ -6,16 +6,11 @@ module SevenGallery
 
     # PUT /:gallery_id/photos/make_main/:id
     def make_main
-      @main_photo = Photo.find_by(seven_gallery_gallery_id: @gallery, is_main: true)
-
-      unless @main_photo.nil?
-        @main_photo.toggle(:is_main)
-        @main_photo.save
-      end
+      Photo.where({gallery: @gallery, is_main: true}).update_all("is_main = 0")
 
       @photo.toggle(:is_main)
       @photo.save
-      p @gallery
+
       redirect_to seven_event.event_url(@gallery.event)
     end
   end

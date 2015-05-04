@@ -5,10 +5,16 @@ module SevenGallery
     routes { SevenEvent::Engine.routes }
 
     describe "PUT #make_main" do
+      
+      let(:gallery) {
+        FactoryGirl.create(:gallery_with_photos)
+      }
+
       it "changes is_main to true in self and false in rest" do
-        photo_one = FactoryGirl.create(:photo_one)
-        photo_two = FactoryGirl.create(:photo_two)
-        photo_three = FactoryGirl.create(:photo_three)
+
+        photo_one = gallery.photos[0]
+        photo_two = gallery.photos[1]
+        photo_three = gallery.photos[2]
 
         expect(photo_one.gallery).to be_a Gallery
 

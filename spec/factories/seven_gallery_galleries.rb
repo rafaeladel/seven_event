@@ -2,15 +2,11 @@ FactoryGirl.define do
   factory :gallery, class: SevenGallery::Gallery do
     title "an event gallery"
 
-    factory :gallery_with_event do
-      association :event, factory: :event_for_gallery
-    end
+    association :event, factory: :event_for_gallery
 
     factory :gallery_with_photos do 
-	    after(:build) do |gallery| 
-	    	gallery.photos << FactoryGirl.create(:photo_one, seven_gallery_gallery_id: gallery)
-	    	gallery.photos << FactoryGirl.create(:photo_two, seven_gallery_gallery_id: gallery)
-	    	gallery.photos << FactoryGirl.create(:photo_three, seven_gallery_gallery_id: gallery)
+	    after(:build) do |gallery|
+        create_list(:photo, 3, gallery: gallery)
 	    end
     end
 

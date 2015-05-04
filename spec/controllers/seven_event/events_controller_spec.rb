@@ -49,7 +49,7 @@ module SevenEvent
       it "assigns all events as @events" do
         event = valid_event
         get :index, {}, valid_session
-        expect(assigns(:events)).to eq([event])
+        expect(assigns(:events)).to include event
       end
     end
 
