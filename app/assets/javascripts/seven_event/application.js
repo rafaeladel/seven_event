@@ -12,4 +12,6 @@
 //
 
 //= require seven_gallery/application
+//= require google_maps
+//= require jquery-locationpicker/dist/locationpicker.jquery
 //= require_tree .

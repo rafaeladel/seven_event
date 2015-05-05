@@ -5,6 +5,7 @@ module SevenEvent
 
     validates :title, presence: true
     validates :description, presence: true
+    validates :location, presence: true
     validate :date_valid
 
     self.table_name = "seven_event_events"

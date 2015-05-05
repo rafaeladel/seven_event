@@ -19,6 +19,13 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
     </div>
+    <div data-longitude="<%= f.object.longitude.present? ? f.object.longitude : '31.25057400000003' %>" data-latitude="<%= f.object.latitude.present? ? f.object.latitude : '30.1002392' %>" id="event_location" style="width: 400px; height: 300px;"></div>
+    <div>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "event_location_input" %>
+      <%= f.hidden_field :longitude, class: "event_longitude_hidden" %>
+      <%= f.hidden_field :latitude, class: "event_latitude_hidden"  %>
+    </div>
     <div>
       <%= f.label :start_at %>
       <%= f.datetime_select :start_at %>

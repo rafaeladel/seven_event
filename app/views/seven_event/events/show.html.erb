@@ -2,6 +2,7 @@
 
 <p>Title: <%= @event.title %></p>
 <p>Title: <%= @event.description %></p>
+<p>Location: <%= @event.location %></p>
 
 <h4>upload:</h4>
 <div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= url_for seven_gallery.gallery_photos_url(@event.gallery) %>">

@@ -58,7 +58,7 @@ module SevenEvent
 
       # Only allow a trusted parameter "white list" through.
       def event_params
-        params[:event].permit(:title, :description, :start_at)
+        params[:event].permit(:title, :description, :location, :longitude, :latitude, :start_at)
       end
   end
 end
