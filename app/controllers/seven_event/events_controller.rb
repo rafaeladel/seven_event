@@ -29,7 +29,8 @@ module SevenEvent
 
       @event.gallery = @gallery
       if @event.save
-        redirect_to @event, notice: 'Event was successfully created.'
+
+        redirect_to @event, notice: Rails.configuration.seven_event.event_created_success
       else
         render :new
       end
@@ -38,7 +39,7 @@ module SevenEvent
     # PATCH/PUT /events/1
     def update
       if @event.update(event_params)
-        redirect_to @event, notice: 'Event was successfully updated.'
+        redirect_to @event, notice: Rails.configuration.seven_event.event_updated_success
       else
         render :edit
       end

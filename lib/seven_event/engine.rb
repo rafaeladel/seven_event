@@ -4,6 +4,8 @@ module SevenEvent
   class Engine < ::Rails::Engine
     isolate_namespace SevenEvent
 
+    config.seven_event = ActiveSupport::OrderedOptions.new
+
     config.generators do |g|
         g.test_framework :rspec, 
           fixture: false, 
